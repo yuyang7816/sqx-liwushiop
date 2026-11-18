@@ -1,0 +1,26 @@
+/**
+ * 公用的css变量 · yanglao-admin-v1
+ */
+@import '../assets/scss/nf-scaffold-tokens';
+
+:root {
+    --bg-color: var(--nf-page-bg);
+    --bg-color-2: var(--nf-sidebar-bg);
+    --bg-color-3: var(--nf-page-bg);
+    --text-color: var(--nf-text-primary);
+    --text-color-1: var(--nf-text-secondary);
+    --text-color-2: var(--nf-text-regular);
+    --border-color: var(--nf-border);
+    --theme-color: var(--nf-brand);
+    --el-color-primary: var(--nf-brand);
+    --el-color-primary-dark-2: var(--nf-brand-deep);
+    --el-color-primary-light-8: var(--nf-brand-lite);
+    --navbar-height: var(--nf-navbar-height);
+    --tags-height: 40px;
+    --menu-width: var(--nf-sidebar-width);
+    --menu-width-collapsed: var(--nf-sidebar-collapsed-width);
+    --page-gap: var(--nf-space-sm);
+    --bt-box-shadow: var(--nf-shadow-card);
+    --bt-box-shadow-1: var(--nf-shadow-card);
+    --box-shadow-2: var(--nf-shadow-navbar);
+}

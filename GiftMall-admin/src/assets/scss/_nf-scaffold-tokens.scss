@@ -1,0 +1,71 @@
+// ============================================================
+// 管理端 Design Tokens · 系统脚手架生成 · Brand #ef276a
+// ============================================================
+$--color-primary: #ef276a;
+$nf-brand: #ef276a;
+$nf-brand-deep: #d31051;
+$nf-brand-lite: #fde5ed;
+$nf-brand-lite2: #f36091;
+
+$nf-page-bg: #f4f6fa;
+$nf-sidebar-bg: #ffffff;
+$nf-sidebar-bg-alt: #f7f8fa;
+$nf-navbar-bg: #ffffff;
+$nf-card-bg: #ffffff;
+$nf-border: #e8eaed;
+$nf-text-primary: #1a2433;
+$nf-text-regular: #303133;
+$nf-text-secondary: #909399;
+
+$nf-space-xs: 8px;
+$nf-space-sm: 12px;
+$nf-space-md: 16px;
+$nf-space-lg: 20px;
+$nf-space-xl: 24px;
+
+$nf-radius-sm: 6px;
+$nf-radius-md: 8px;
+$nf-radius-lg: 10px;
+
+$nf-shadow-card: 0 1px 4px rgba(0, 0, 0, 0.06);
+$nf-shadow-navbar: 0 1px 0 rgba(0, 0, 0, 0.06);
+
+$nf-navbar-height: 56px;
+$nf-sidebar-width: 230px;
+$nf-sidebar-collapsed-width: 64px;
+
+$navbar--background-color: $nf-navbar-bg;
+$sidebar--background-color-dark: $nf-sidebar-bg;
+$content--background-color: $nf-page-bg;
+
+:root {
+  --el-color-primary: #{$nf-brand};
+  --el-color-primary-dark-2: #{$nf-brand-deep};
+  --el-color-primary-light-8: #{$nf-brand-lite};
+  --nf-brand: #{$nf-brand};
+  --nf-brand-deep: #{$nf-brand-deep};
+  --nf-brand-lite: #{$nf-brand-lite};
+  --nf-brand-lite2: #{$nf-brand-lite2};
+  --nf-page-bg: #{$nf-page-bg};
+  --nf-sidebar-bg: #{$nf-sidebar-bg};
+  --nf-sidebar-bg-alt: #{$nf-sidebar-bg-alt};
+  --nf-navbar-bg: #{$nf-navbar-bg};
+  --nf-card-bg: #{$nf-card-bg};
+  --nf-border: #{$nf-border};
+  --nf-text-primary: #{$nf-text-primary};
+  --nf-text-regular: #{$nf-text-regular};
+  --nf-text-secondary: #{$nf-text-secondary};
+  --nf-space-xs: #{$nf-space-xs};
+  --nf-space-sm: #{$nf-space-sm};
+  --nf-space-md: #{$nf-space-md};
+  --nf-space-lg: #{$nf-space-lg};
+  --nf-space-xl: #{$nf-space-xl};
+  --nf-radius-sm: #{$nf-radius-sm};
+  --nf-radius-md: #{$nf-radius-md};
+  --nf-radius-lg: #{$nf-radius-lg};
+  --nf-shadow-card: #{$nf-shadow-card};
+  --nf-shadow-navbar: #{$nf-shadow-navbar};
+  --nf-navbar-height: #{$nf-navbar-height};
+  --nf-sidebar-width: #{$nf-sidebar-width};
+  --nf-sidebar-collapsed-width: #{$nf-sidebar-collapsed-width};
+}

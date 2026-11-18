@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sqx.domain.repository.mapper.giftMall.GiftUserCouponMapper">
+    <select id="list" resultType="com.sqx.domain.repository.domain.giftMall.dto.GiftUserCouponDto">
+        SELECT
+            uc.failure_time,
+            uc.`status`,
+            uc.create_time,
+            c.coupon_name,
+            c.less_money,
+            c.min_money,
+            u.user_name
+        FROM
+            gift_user_coupon uc
+        LEFT JOIN gift_coupon c ON uc.coupon_id = c.id
+        LEFT JOIN tb_user u ON uc.user_id = u.user_id
+    </select>
+</mapper>

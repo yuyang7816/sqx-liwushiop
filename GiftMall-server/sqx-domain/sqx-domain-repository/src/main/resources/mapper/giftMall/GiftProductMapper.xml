@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sqx.domain.repository.mapper.giftMall.GiftProductMapper">
+    <update id="incrSales">
+        update gift_product set sales = sales + #{num} where id = #{orderId}
+    </update>
+
+    <select id="page" resultType="com.sqx.domain.repository.domain.giftMall.dto.GiftProductDto">
+        SELECT
+            p.*,
+            s.`name` as sceneName,
+            t.`name` as targetName
+        FROM
+            gift_product p
+        LEFT JOIN gift_scene s ON p.scene_id = s.id
+        LEFT JOIN gift_target t ON p.target_id = t.id
+        <where>
+            <if test="param.name != null and param.name != ''">
+                and p.`name` like concat('%', #{param.name}, '%')
+            </if>
+            <if test="param.status != null">
+                and p.status = #{param.status}
+            </if>
+            <if test="param.goodPick != null">
+                and p.good_pick = #{param.goodPick}
+            </if>
+            <if test="param.specialOffer != null">
+                and p.special_offer = #{param.specialOffer}
+            </if>
+            <if test="param.typeId != null">
+                and p.type_id = #{param.typeId}
+            </if>
+            <if test="param.sceneId != null">
+                and p.scene_id = #{param.sceneId}
+            </if>
+            <if test="param.targetId != null">
+                and p.target_id = #{param.targetId}
+            </if>
+            <if test="param.startBudget != null">
+                and p.price >= #{param.startBudget}
+            </if>
+            <if test="param.endBudget != null">
+                and #{param.endBudget} >= p.price
+            </if>
+        </where>
+        order by p.create_time desc
+    </select>
+</mapper>

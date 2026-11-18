@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.sqx</groupId>
+        <artifactId>sqx-modules</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <artifactId>sqx-gift-mall</artifactId>
+
+    <properties>
+        <qcloudsms.version>1.0.6</qcloudsms.version>
+        <aliyun-ecs.version>5.1.2</aliyun-ecs.version>
+        <okhttp3.version>4.12.0</okhttp3.version>
+        <javax.mail.version>1.6.2</javax.mail.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.sqx</groupId>
+            <artifactId>sqx-common-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.sqx</groupId>
+            <artifactId>sqx-common-pay</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sqx</groupId>
+            <artifactId>sqx-auth</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sqx</groupId>
+            <artifactId>sqx-domain-repository</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sqx</groupId>
+            <artifactId>sqx-common-redis</artifactId>
+        </dependency>
+
+        <!--腾讯短信sdk-->
+        <dependency>
+            <groupId>com.github.qcloudsms</groupId>
+            <artifactId>qcloudsms</artifactId>
+            <version>${qcloudsms.version}</version>
+        </dependency>
+
+        <!--阿里云ECS V2.0 SDK -->
+        <dependency>
+            <groupId>com.aliyun</groupId>
+            <artifactId>ecs20140526</artifactId>
+            <version>${aliyun-ecs.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>${okhttp3.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>${javax.mail.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sqx</groupId>
+            <artifactId>sqx-common-file</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-extra</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sqx</groupId>
+            <artifactId>sqx-system</artifactId>
+            <version>${revision}</version>
+        </dependency>
+    </dependencies>
+
+</project>

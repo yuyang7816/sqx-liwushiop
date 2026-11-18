@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sqx.domain.repository.mapper.giftMall.GiftProductRuleValueMapper">
+
+    <resultMap id="BaseResultMap" type="com.sqx.domain.repository.entity.giftMall.GiftProductRuleValue">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="ruleid" column="ruleId" jdbcType="INTEGER"/>
+            <result property="value" column="value" jdbcType="VARCHAR"/>
+            <result property="detail" column="detail" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,ruleId,value,
+        detail
+    </sql>
+</mapper>

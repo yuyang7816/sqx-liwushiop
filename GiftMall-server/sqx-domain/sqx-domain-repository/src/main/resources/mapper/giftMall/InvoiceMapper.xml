@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sqx.domain.repository.mapper.giftMall.InvoiceDao">
+
+    <select id="adminGetIndentList" resultType="com.sqx.domain.repository.entity.giftMall.Invoice">
+        SELECT i.*,
+        b.user_name as nickName
+        FROM invoice i,
+        tb_user b
+        WHERE i.user_id = b.user_id
+        <if test="indentNumber!=null and indentNumber!=''">
+            and i.indent_number like concat("%",#{indentNumber},"%")
+        </if>
+        <if test="status!=null">
+            and i.status = #{status}
+        </if>
+        <if test="userId!=null">
+            and i.user_id = #{userId}
+        </if>
+        <if test="phone!=null and phone!=''">
+            and i.user_phone like concat("%",#{phone},"%")
+        </if>
+        <if test="startTime!=null and startTime!=''">
+            and date_format(i.create_time,'%Y-%m-%d') &gt;= #{startTime}
+        </if>
+        <if test="endTime!=null and endTime!=''">
+            and date_format(i.create_time,'%Y-%m-%d') &lt;= #{endTime}
+        </if>
+        order by i.create_time desc
+    </select>
+    <select id="getInvoiceList" resultType="com.sqx.domain.repository.entity.giftMall.Invoice">
+        select * from invoice
+        where 1=1
+        <if test="userType!=null">
+            and user_type = #{userType}
+        </if>
+        <if test="invoiceTitle!=null and invoiceTitle!=''">
+            and invoiceTitle concat("%",#{invoiceTitle},"%")
+        </if>
+        <if test="taxpayerNumber!=null and taxpayerNumber!=''">
+            and taxpayer_number concat("%",#{taxpayerNumber},"%")
+        </if>
+        <if test="invoiceType!=null ">
+            and invoice_type = #{invoiceType}
+        </if>
+        <if test="bankDeposit!=null and bankDeposit!=''">
+            and invoice_type concat("%",#{bankDeposit},"%")
+        </if>
+        <if test="userPhone!=null and userPhone!=''">
+            and user_phone concat("%",#{userPhone},"%")
+        </if>
+        <if test="indentId!=null ">
+            and invoice_id = #{indentId}
+        </if>
+        <if test="status!=null ">
+            and status = #{status}
+        </if>
+        <if test="startTime!=null and startTime!='' and endTime!=null and endTime!=''">
+            and date_format(i.create_time,'%Y-%m-%d') BETWEEN #{startTime} and #{endTime}
+        </if>
+        <if test="startTime!=null and startTime!='' and  (endTime==null or endTime='')">
+            and date_format(i.create_time,'%Y-%m-%d') &gt;= #{startTime}
+        </if>
+        <if test="endTime!=null and endTime!='' and  (startTime==null or startTime='')">
+            and date_format(i.create_time,'%Y-%m-%d') &lt;= #{endTime}
+        </if>
+        order by create_time desc
+    </select>
+    <select id="getMyInvoiceList" resultType="com.sqx.domain.repository.entity.giftMall.Invoice">
+        SELECT i.*,
+               b.user_name AS nickName
+        FROM invoice i,
+             tb_user b
+        WHERE i.user_id = b.user_id
+          and i.user_id = #{userId}
+        order by i.create_time desc
+    </select>
+</mapper>

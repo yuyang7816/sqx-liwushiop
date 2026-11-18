@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sqx.domain.repository.mapper.giftMall.GiftOrderMapper">
+    <select id="page" resultType="com.sqx.domain.repository.domain.giftMall.dto.OrderDto">
+        SELECT
+            o.*,
+            p.`name` AS productName,
+            p.`img` AS productImg,
+            pt.`name` AS typeName,
+            c.coupon_name as userCouponsName,
+            u.user_name as userName
+        FROM
+            `gift_order` o
+        LEFT JOIN `gift_product` p ON o.product_id = p.id
+        LEFT JOIN `gift_product_type` pt ON o.type_id = pt.id
+        LEFT JOIN `gift_coupon` c ON o.user_coupons_id = c.id
+        LEFT JOIN `tb_user` u ON o.user_id = u.user_id
+        <where>
+            <if test="param.status != null">
+                and o.status = #{param.status}
+            </if>
+            <if test="param.orderNo != null">
+                and o.order_no = #{param.orderNo}
+            </if>
+            <if test="param.orderType != null">
+                and o.type_id = #{param.orderType}
+            </if>
+            <if test="param.startTime != null">
+                and o.create_time >= #{param.startTime}
+            </if>
+            <if test="param.endTime != null">
+                and #{param.endTime} >= o.create_time
+            </if>
+            <if test="param.userId != null">
+                and o.user_id = #{param.userId}
+            </if>
+        </where>
+        order by o.create_time desc
+    </select>
+    <select id="selfRefundList" resultType="com.sqx.domain.repository.domain.giftMall.dto.OrderDto">
+        SELECT
+            o.*,
+            p.`name` AS productName,
+            p.`img` AS productImg,
+            pt.`name` AS typeName,
+            c.coupon_name as userCouponsName,
+            u.user_name as userName
+        FROM
+            `gift_order` o
+        LEFT JOIN `gift_product` p ON o.product_id = p.id
+        LEFT JOIN `gift_product_type` pt ON o.type_id = pt.id
+        LEFT JOIN `gift_coupon` c ON o.user_coupons_id = c.id
+        LEFT JOIN `tb_user` u ON o.user_id = u.user_id
+        WHERE
+          o.user_id = #{userId}
+          and o.status in (6 ,7, 8)
+        order by o.create_time desc
+    </select>
+
+    <select id="sum" resultType="java.math.BigDecimal">
+        SELECT
+            sum(pay_money)
+        FROM
+            gift_order
+        WHERE
+            `status` NOT IN
+            <foreach collection="statusList" item="status" open="(" close=")" separator=",">
+                #{status}
+            </foreach>
+          AND create_time BETWEEN #{startTime} AND #{endTime}
+    </select>
+</mapper>

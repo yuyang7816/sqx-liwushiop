@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sqx.domain.repository.mapper.giftMall.WithdrawRecordMapper">
+
+    <select id="pageInfo" resultType="com.sqx.domain.repository.domain.giftMall.dto.WithdrawRecordVo">
+        SELECT
+            wr.*,
+            u.user_name,
+            u.avatar,
+            u.phone,
+            wa.account_name,
+            wa.account_number
+        FROM
+            withdraw_record wr
+        LEFT JOIN tb_user u ON wr.user_id = u.user_id
+        LEFT JOIN withdrawal_account wa ON wr.user_id = wa.user_id AND wr.account_type = wa.type
+        <where>
+            <if test="param.userId != null">
+                and wr.user_id = #{param.userId}
+            </if>
+            <if test="param.userName != null and param.userName != ''">
+                and u.user_name = #{param.userName}
+            </if>
+            <if test="param.phone != null and param.phone != ''">
+                and u.phone = #{param.phone}
+            </if>
+            <if test="param.status != null">
+                and wr.status = #{param.status}
+            </if>
+            <if test="param.accountType != null">
+                and wr.account_type = #{param.accountType}
+            </if>
+            <if test="param.startTime != null and param.endTime != null">
+                and sr.create_time between #{param.startTime} and #{param.endTime}
+            </if>
+        </where>
+        order by wr.create_time desc
+    </select>
+
+    <select id="sumAmount" resultType="java.math.BigDecimal">
+        SELECT
+            IFNULL(SUM(amount), 0)
+        FROM
+            withdraw_record
+        where create_time between #{startTime} and #{endTime}
+    </select>
+</mapper>

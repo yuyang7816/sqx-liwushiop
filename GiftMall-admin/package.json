@@ -1,0 +1,47 @@
+{
+    "name": "sz-fast-vue",
+    "private": true,
+    "version": "0.0.1",
+    "type": "module",
+    "description": "sz-fast-vue基于vue、element-ui构建开发，实现sz-fast后台管理前端功能，提供一套更优的前端解决方案。",
+    "author": "daxiong.yang <daxiong.yang@qq.com>",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview",
+        "update-codess-package": "codess install"
+    },
+    "dependencies": {
+        "@element-plus/icons-vue": "^2.3.1",
+        "@vueup/vue-quill": "^1.2.0",
+        "axios": "^1.7.7",
+        "copy-to-clipboard": "3.3.3",
+        "cropperjs": "1.6.2",
+        "echarts": "5.5.1",
+        "element-china-area-data": "^6.1.0",
+        "element-plus": "2.8.2",
+        "glob": "11.0.0",
+        "mime": "4.0.4",
+        "mitt": "3.0.1",
+        "nanoid": "5.0.7",
+        "nprogress": "0.2.0",
+        "pinia": "2.2.2",
+        "qqmap": "^1.0.1",
+        "quill": "^2.0.3",
+        "quill-blot-formatter": "^1.0.5",
+        "sass": "1.78.0",
+        "simplebar-vue": "2.3.5",
+        "storages-js": "0.0.4",
+        "unplugin-auto-import": "0.18.2",
+        "unplugin-vue-components": "0.27.4",
+        "vite-plugin-ali-oss": "2.0.2",
+        "vue": "3.5.4",
+        "vue-jsonp": "^2.1.0",
+        "vue-router": "4.4.5",
+        "vuedraggable": "4.1.0"
+    },
+    "devDependencies": {
+        "@vitejs/plugin-vue": "5.1.2",
+        "vite": "5.4.1"
+    }
+}

@@ -1,0 +1,92 @@
+/**
+ * Element Plus 主题色 · Brand #ef276a
+ */
+:root {
+    --el-color-primary: #ef276a !important;
+    --el-color-primary-rgb: 239, 39, 106 !important;
+    --el-color-primary-light-1: #f14f82 !important;
+    --el-color-primary-light-2: #f36091 !important;
+    --el-color-primary-light-3: #f572a0 !important;
+    --el-color-primary-light-4: #f783af !important;
+    --el-color-primary-light-5: #f995be !important;
+    --el-color-primary-light-6: #faa6cd !important;
+    --el-color-primary-light-7: #fcb8dc !important;
+    --el-color-primary-light-8: #fde5ed !important;
+    --el-color-primary-light-9: #fef0f5 !important;
+    --el-color-primary-dark-2: #d31051 !important;
+    --el-box-shadow: var(--nf-shadow-card) !important;
+}
+
+.el-scrollbar {
+    .el-scrollbar__bar {
+        border-radius: 2px !important;
+        .el-scrollbar__thumb {
+            background-color: rgba(144, 147, 153, 0.5) !important;
+            opacity: 1 !important;
+        }
+    }
+}
+
+.el-message {
+    border-radius: 999px !important;
+    box-shadow: var(--nf-shadow-card);
+}
+
+/* ── Brand 交互组件对齐（开关 / 单选 / 多选 / 页签 / 链接） ── */
+.el-switch.is-checked .el-switch__core {
+    border-color: var(--nf-brand) !important;
+    background-color: var(--nf-brand) !important;
+}
+
+.el-radio__input.is-checked .el-radio__inner {
+    border-color: var(--nf-brand) !important;
+    background: var(--nf-brand) !important;
+}
+
+.el-radio__input.is-checked + .el-radio__label {
+    color: var(--nf-brand) !important;
+}
+
+.el-checkbox__input.is-checked .el-checkbox__inner,
+.el-checkbox__input.is-indeterminate .el-checkbox__inner {
+    border-color: var(--nf-brand) !important;
+    background-color: var(--nf-brand) !important;
+}
+
+.el-tabs__item {
+    color: var(--nf-text-primary) !important;
+}
+
+.el-tabs__item.is-active,
+.el-tabs__item:hover {
+    color: var(--nf-brand) !important;
+}
+
+.el-tabs__active-bar {
+    background-color: var(--nf-brand) !important;
+}
+
+.el-link.el-link--primary {
+    --el-link-text-color: var(--nf-brand);
+    --el-link-hover-text-color: var(--nf-brand-deep);
+}
+
+.el-pagination.is-background .el-pager li.is-active {
+    background-color: var(--nf-brand) !important;
+}
+
+.el-pagination.is-background .el-pager li:hover {
+    color: var(--nf-brand) !important;
+}
+
+.el-select-dropdown__item.is-selected {
+    color: var(--nf-brand) !important;
+}
+
+.el-date-table td.current:not(.disabled) .el-date-table-cell__text {
+    background-color: var(--nf-brand) !important;
+}
+
+.el-date-table td.today .el-date-table-cell__text {
+    color: var(--nf-brand) !important;
+}

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sqx.domain.repository.mapper.giftMall.PayDetailsMapper">
+    <select id="rechargeRecord" resultType="com.sqx.domain.repository.domain.giftMall.dto.RechargeRecordVo">
+        SELECT
+            pd.*,
+            u.user_name,
+            u.avatar,
+            u.phone
+        FROM
+            pay_details pd
+        LEFT JOIN tb_user u ON pd.user_id = u.user_id
+        WHERE state = 1 AND business_type = "recharge"
+        <if test="param.userName != null and param.userName != ''">
+            and u.user_name like concat('%', #{param.userName} ,'%')
+        </if>
+        <if test="param.platform != null">
+            and pd.platform = #{param.platform}
+        </if>
+        <if test="param.tradeType != null and param.tradeType != ''">
+            and pd.trade_type = #{param.tradeType}
+        </if>
+        <if test="param.startTime != null and param.endTime != null">
+            and pd.pay_time between #{param.startTime} and #{param.endTime}
+        </if>
+        ORDER BY pd.create_time DESC
+    </select>
+
+    <select id="payDetails" resultType="com.sqx.domain.repository.domain.giftMall.dto.PayDetailsVo">
+        SELECT
+        pd.*,
+        u.user_name,
+        u.avatar,
+        u.phone
+        FROM
+        pay_details pd
+        LEFT JOIN tb_user u ON pd.user_id = u.user_id
+        WHERE state = 1 AND business_type = 3
+        <if test="param.state != null">
+            and pd.state = #{param.state}
+        </if>
+        <if test="param.businessType != null">
+            and pd.business_type = #{param.businessType}
+        </if>
+        <if test="param.userName != null and param.userName != ''">
+            and u.user_name like concat('%', #{param.userName} ,'%')
+        </if>
+        <if test="param.platform != null">
+            and pd.platform = #{param.platform}
+        </if>
+        <if test="param.tradeType != null and param.tradeType != ''">
+            and pd.trade_type = #{param.tradeType}
+        </if>
+        <if test="param.startTime != null and param.endTime != null">
+            and pd.pay_time between #{param.startTime} and #{param.endTime}
+        </if>
+        ORDER BY pd.create_time DESC
+    </select>
+</mapper>

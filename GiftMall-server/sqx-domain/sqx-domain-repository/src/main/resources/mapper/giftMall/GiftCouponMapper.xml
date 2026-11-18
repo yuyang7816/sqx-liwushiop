@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sqx.domain.repository.mapper.giftMall.GiftCouponMapper">
+
+    <resultMap id="BaseResultMap" type="com.sqx.domain.repository.entity.giftMall.GiftCoupon">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="type" column="type" jdbcType="TINYINT"/>
+            <result property="couponName" column="coupon_name" jdbcType="VARCHAR"/>
+            <result property="lessMoney" column="less_money" jdbcType="DECIMAL"/>
+            <result property="minMoney" column="min_money" jdbcType="DECIMAL"/>
+            <result property="validDay" column="valid_day" jdbcType="INTEGER"/>
+            <result property="sort" column="sort" jdbcType="INTEGER"/>
+            <result property="status" column="status" jdbcType="TINYINT"/>
+            <result property="productIds" column="product_ids" jdbcType="VARCHAR"/>
+            <result property="productImages" column="product_images" jdbcType="VARCHAR"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,type,coupon_name,
+        less_money,min_money,valid_day,
+        sort,status,product_ids,
+        product_images,create_time,update_time
+    </sql>
+</mapper>

@@ -1,0 +1,51 @@
+import '@/assets/scss/nf-scaffold-shell.css';
+import { isProd } from '@/common/otherTools';
+import { createApp } from 'vue';
+import { createPinia } from 'pinia';
+import isAuth  from '@/http/user.js'
+/** 添加公共样式 */
+import '@/style/index.scss';
+import App from './App.vue';
+import router from './router/index';
+/** 注册路由许可验证 */
+import './permission';
+/** 打印完整路由表 */
+import { sysMeluConfigList } from './router/common';
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+const pinia = createPinia();
+if (!isProd()) {
+    console.log('系统完整路由表，router挂载全局window.router', router, sysMeluConfigList);
+    /** 挂载到全局方便操作 */
+    window.router = router; 
+    
+    /** 提示重复菜单 */
+    sysMeluConfigList.reduce((c, i) => {
+        if (!i.name) return c;
+        if (c[i.name]) {
+            console.log('重复菜单 name', i);
+        }
+        c[i.name] = true;
+        return c;
+    }, {});
+}
+const app = createApp(App);
+// app.directive("isAuth", {
+//     mounted(el, binding){
+//         // 按钮所需权限码
+//         const btnCodes = binding.value
+//         const isAuth = isAuth(btnCodes)
+
+//         // 无权限
+//         if(!isAuth){
+//             el?.removeChild(el)
+//         }
+        
+//     }
+// })
+// app.config.globalProperties.$isAuth = isAuth;// 权限方法
+for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+  app.component(key, component)
+}
+app.use(router);
+app.use(pinia);
+app.mount('#app');
